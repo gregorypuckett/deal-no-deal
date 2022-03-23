@@ -295,7 +295,7 @@ function makeOffer() {
 
    const bankOffersElmt = document.querySelector("#banker-offers")
    offerDisplay = document.createElement("p")
-   offerDisplay.textContent = `#${bankerOffers.length}: ${formatCash(bankerOffers[bankerOffers.length-1])}`
+   offerDisplay.textContent = `Round ${bankerOffers.length}: ${formatCash(bankerOffers[bankerOffers.length-1])}`
    bankOffersElmt.append(offerDisplay)
 
       
@@ -325,6 +325,7 @@ function deal() {
    offerBtn.style.display = "none"
    offerElmt.textContent = message
 
+   // open players case
    const selectedCase = document.getElementById(playerCase.id)      
    selectedCase.textContent = formatCash(playerCase.cashAmount)
    selectedCase.classList.add("opened")
@@ -361,6 +362,12 @@ function openLastCase() {
    selectedCase.textContent = formatCash(casePrize)
    selectedCase.classList.add("opened")
    selectedCase.classList.remove("unopened")
+
+   // open players case
+   const playersCase = document.getElementById(playerCase.id)      
+   playersCase.textContent = formatCash(playerCase.cashAmount)
+   playersCase.classList.add("opened")
+   playersCase.classList.remove("unopened")
 
    chosenCases.push({id: caseId, cashAmount: casePrize})
 

@@ -91,7 +91,7 @@ td {
    border-radius: 5px;
    font-size: 18px;
    font-weight: bold;
-   background-color: lightblue;
+   background: linear-gradient(180deg, gold 50%, goldenrod 50%);
 }
 
 .eliminated {
@@ -106,7 +106,7 @@ td {
 }
 
 .case-won {
-   background-color: lightgreen;
+   transform: scale(1.2);
 }
 
 #right-stage p {
@@ -125,9 +125,10 @@ td {
 #player-case-display h2{
    margin: 0;
    border: 3px solid #000;
-   background-color: purple;
+   padding: 3px;
+   background: linear-gradient(180deg, gold 50%, goldenrod 50%);
    border-radius: 5px;
-   color: #f4f4f4;   
+   color: #000;   
 }
 
 #banker-offers {
@@ -141,7 +142,8 @@ td {
 #banker-offers h2{
    margin: 0;
    border: 3px solid #000;
-   background-color: purple;
+   padding: 3px;
+   background: linear-gradient(180deg, gold 50%, goldenrod 50%);
    border-radius: 5px;
-   color: #f4f4f4;   
+   color: #000;   
 }
