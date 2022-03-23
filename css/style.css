@@ -1,6 +1,6 @@
 body {
    background-color: #f4f4f4;
-   color: #555;
+   color: #000;
    font-family: Arial, Helvetica, sans-serif;
    font-size: 16px;
    line-height: 1.6em;
@@ -68,8 +68,9 @@ body {
  }
 
  .player-case {
-   background-color: gold;
+   /* background-color: gold; */
    border-radius: 5px;
+   margin: auto;
  }
 
  .player-case:hover {
@@ -95,8 +96,13 @@ td {
 
 .eliminated {
    background-color: lightgrey;
+   color: gray;
    border-width: 1px;
-   text-decoration: line-through;
+   /* text-decoration: line-through; */
+   border-left: 3px solid gray;
+   border-top: 3px solid gray;
+   border-right: 3px solid gainsboro;
+   border-bottom: 3px solid gainsboro;
 }
 
 .case-won {
@@ -106,4 +112,36 @@ td {
 #right-stage p {
    margin: 0;
    font-size: 24px;
+}
+
+#player-case-display {
+   height: 130px;
+   padding: 5px;
+   border: 3px solid #000;
+   border-radius: 5px;
+
+}
+
+#player-case-display h2{
+   margin: 0;
+   border: 3px solid #000;
+   background-color: purple;
+   border-radius: 5px;
+   color: #f4f4f4;   
+}
+
+#banker-offers {
+   margin-top: 10px;
+   height: 260px;
+   padding: 5px;
+   border: 3px solid #000;
+   border-radius: 5px;
+}
+
+#banker-offers h2{
+   margin: 0;
+   border: 3px solid #000;
+   background-color: purple;
+   border-radius: 5px;
+   color: #f4f4f4;   
 }

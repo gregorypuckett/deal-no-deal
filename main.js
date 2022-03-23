@@ -59,11 +59,13 @@ function createStage() {
       newCase.textContent = newCase.id
       newCase.classList.add("briefcase", "unopened")
       newCase.addEventListener("click", pickFirstCase)
-      if (newCase.id === "1") {
-         document.querySelector("#first-case").append(newCase)
-      } else {
-         stageElmt.append(newCase)
-      }
+      // if (newCase.id === "1") {
+      //    document.querySelector("#first-case").append(newCase)
+      // } else {
+      //    stageElmt.append(newCase)
+      // }
+
+      stageElmt.append(newCase)
 
       // create prize table
       // const th = document.createElement("th")
@@ -126,10 +128,15 @@ function pickFirstCase() {
    let caseId = this.id   
    const casePrize = briefcases[caseId - 1].cashAmount
    playerCase = {id: caseId, cashAmount: casePrize} 
-   displayCaseElmt.textContent = caseId
+
    const briefcase = document.querySelectorAll(".briefcase")
    briefcase[caseId - 1].classList.add("player-case")
-   
+
+   //move player picked case to display area
+   const playerCaseDisplay = document.querySelector("#player-case-display")
+   const pickedCase = document.getElementById(caseId)
+   playerCaseDisplay.appendChild(pickedCase)
+ 
    briefcase.forEach(function(_case) {
       _case.removeEventListener("click", pickFirstCase)
    })
@@ -317,6 +324,13 @@ function deal() {
    let message = `${congrats}! You won ${formatCash(winnings)} and your case had ${formatCash(playerCase.cashAmount)}!`
    offerBtn.style.display = "none"
    offerElmt.textContent = message
+
+   const selectedCase = document.getElementById(playerCase.id)      
+   selectedCase.textContent = formatCash(playerCase.cashAmount)
+   selectedCase.classList.add("opened")
+   selectedCase.classList.remove("unopened")
+
+
    gameOver()
 
 }
