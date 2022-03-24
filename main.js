@@ -59,16 +59,10 @@ function createStage() {
       newCase.textContent = newCase.id
       newCase.classList.add("briefcase", "unopened")
       newCase.addEventListener("click", pickFirstCase)
-      // if (newCase.id === "1") {
-      //    document.querySelector("#first-case").append(newCase)
-      // } else {
-      //    stageElmt.append(newCase)
-      // }
 
       stageElmt.append(newCase)
 
       // create prize table
-      // const th = document.createElement("th")
       if (i < 13) {
 
          const tr = document.createElement("tr")
@@ -99,12 +93,8 @@ function createStage() {
          const prize = formatCash(cashAmounts[i])
          const txt = document.createTextNode(prize)
          column2Cells[row].appendChild(txt)
-         row++
-       
+         row++       
       }
-
-
-
    }
 
    const dealBtn = document.createElement("button")
@@ -118,10 +108,7 @@ function createStage() {
    noDealBtn.setAttribute("id", "no-deal-btn")
 
    offerBtn.style.display = "none"
-   directionsElmt.textContent = "Pick a case to hold & chose 6 cases"
-   
-
-   
+   directionsElmt.textContent = "Select a case to hold and open six cases."   
 }
 
 function pickFirstCase() {   
@@ -178,7 +165,7 @@ function openCase() {
       if (chosenCases.length === 6) {
          makeOffer()         
          noDealBtn.onclick = function() {
-            directionsElmt.textContent = `Chose 5 cases`
+            directionsElmt.textContent = `Open five cases.`
             offerBtn.style.display = "none"
             offerElmt.textContent = ""
          selectCases()
@@ -187,7 +174,7 @@ function openCase() {
       if (chosenCases.length === 11) {
          makeOffer()
          noDealBtn.onclick = function() {
-            directionsElmt.textContent = `Chose 4 cases`
+            directionsElmt.textContent = `Open four cases.`
             offerBtn.style.display = "none"
             offerElmt.textContent = ""
          selectCases()
@@ -196,7 +183,7 @@ function openCase() {
       if (chosenCases.length === 15) {
          makeOffer()
          noDealBtn.onclick = function() {
-            directionsElmt.textContent = `Chose 3 cases`
+            directionsElmt.textContent = `Open three cases.`
             offerBtn.style.display = "none"
             offerElmt.textContent = ""
          selectCases()
@@ -205,7 +192,7 @@ function openCase() {
       if (chosenCases.length === 18) {
          makeOffer()
          noDealBtn.onclick = function() {
-            directionsElmt.textContent = `Chose 2 cases`
+            directionsElmt.textContent = `Open two cases.`
             offerBtn.style.display = "none"
             offerElmt.textContent = ""
          selectCases()
@@ -214,7 +201,7 @@ function openCase() {
       if (chosenCases.length === 20) {
          makeOffer()
          noDealBtn.onclick = function() {
-            directionsElmt.textContent = `Chose 1 case`
+            directionsElmt.textContent = `Open one case.`
             offerBtn.style.display = "none"
             offerElmt.textContent = ""
          selectCases()
@@ -223,7 +210,7 @@ function openCase() {
       if (chosenCases.length === 21) {
          makeOffer()
          noDealBtn.onclick = function() {
-            directionsElmt.textContent = `Chose 1 case`
+            directionsElmt.textContent = `Open one case.`
             offerBtn.style.display = "none"
             offerElmt.textContent = ""
          selectCases()
@@ -232,7 +219,7 @@ function openCase() {
       if (chosenCases.length === 22) {
          makeOffer()
          noDealBtn.onclick = function() {
-            directionsElmt.textContent = `Chose 1 case`
+            directionsElmt.textContent = `Open one case.`
             offerBtn.style.display = "none"
             offerElmt.textContent = ""
          selectCases() 
@@ -241,7 +228,7 @@ function openCase() {
       if (chosenCases.length === 23) {
          makeOffer()
          noDealBtn.onclick = function() {
-            directionsElmt.textContent = `Chose 1 case`
+            directionsElmt.textContent = `Open one more case.`
             offerBtn.style.display = "none"
             offerElmt.textContent = ""
          selectCases() 
@@ -250,7 +237,7 @@ function openCase() {
       if (chosenCases.length === 24) {
          makeOffer()
          noDealBtn.onclick = function() {
-            directionsElmt.textContent = `Chose your case or the last case`
+            directionsElmt.textContent = `Two cases remain! You have two options 1. Open your case from the right or 2. Open the last case on the stage. Good luck!`
             offerBtn.style.display = "none"
             offerElmt.textContent = ""
          }
@@ -291,7 +278,7 @@ function makeOffer() {
    offerElmt.style.display = "inline"
    offerElmt.textContent = `${formatCash(bankOffer)}`
    offerBtn.style.display = "inline"
-   directionsElmt.textContent = "Deal or No deal?"
+   directionsElmt.textContent = "Deal or no deal?"
 
    const bankOffersElmt = document.querySelector("#banker-offers")
    offerDisplay = document.createElement("p")
@@ -312,7 +299,6 @@ function calcOffer(array, lengthOfArray) {
    return sum
 }
 
-
 function deal() {
    const winnings = bankerOffers[bankerOffers.length - 1]
    let congrats = ""
@@ -321,7 +307,7 @@ function deal() {
    } else {
       congrats = "What a shame"
    }
-   let message = `${congrats}! You won ${formatCash(winnings)} and your case had ${formatCash(playerCase.cashAmount)}!`
+   let message = `${congrats}, you won ${formatCash(winnings)}! Your case had ${formatCash(playerCase.cashAmount)}!`
    offerBtn.style.display = "none"
    offerElmt.textContent = message
 
@@ -330,21 +316,16 @@ function deal() {
    selectedCase.textContent = formatCash(playerCase.cashAmount)
    selectedCase.classList.add("opened")
    selectedCase.classList.remove("unopened")
-
-
    gameOver()
-
 }
 
 function formatCash(cash) {
    const dollarUS = Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
-      minimumFractionDigits: 0
-   
+      minimumFractionDigits: 0   
    })
    return dollarUS.format(cash)
-
 }
 
 function selectLastCase() {
@@ -373,10 +354,10 @@ function openLastCase() {
 
    if (chosenCases.length === 25) {
       if (playerCase.id === caseId) {
-         offerElmt.textContent = `You chose your case and won ${formatCash(playerCase.cashAmount)}!`
+         directionsElmt.textContent  = `You won ${formatCash(playerCase.cashAmount)}!`
       } else {
          const casePrize = briefcases[caseId - 1].cashAmount
-         offerElmt.textContent = `You won ${formatCash(casePrize)}.  Your chosen case had ${formatCash(playerCase.cashAmount)}!`
+         directionsElmt.textContent = `You won ${formatCash(casePrize)}!  Your selected case had ${formatCash(playerCase.cashAmount)}!`
       }
       gameOver()
    }
