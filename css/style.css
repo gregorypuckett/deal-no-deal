@@ -77,7 +77,7 @@ button:hover {
    display: flex;
    align-items: center;
    justify-content: center;
-   background-image: url("./images/briefcaseSprite.png");
+   background-image: url("./sprites/briefcase.png");
    background-repeat: no-repeat;
    object-fit: fill;
    font-size: 18px;
