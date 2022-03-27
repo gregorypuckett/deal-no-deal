@@ -85,8 +85,7 @@ function createStage() {
          const txt = document.createTextNode(prize)
          column1Cells[i].appendChild(txt)         
 
-      }
-    
+      }    
       
       if (i >= 13) {        
          const column2Cells = document.querySelectorAll(".col-2")
