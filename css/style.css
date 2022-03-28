@@ -1,11 +1,13 @@
 body {
    color: #000;
    font-family: Arial, Helvetica, sans-serif;
-   font-size: 16px;
+   font-size: 100%;
    line-height: 1.6em;
    margin: 0;
    padding: 0;
-   /* background: url(images/bg.jpg); */
+   background:
+      linear-gradient(160deg, black 70%, goldenrod, gold, goldenrod, black);
+   background-color: black;
 }
 
 .container {
@@ -23,15 +25,19 @@ body {
    text-align: center;
    border: 3px solid #000;
    border-radius: 5px;
-   background: papayawhip;
+   background: rgba(255, 239, 213, 0.5);
 }
 
+/*  set deal no deal buttons display */
 #message-display p {
-   margin: 0;
-   line-height: 1.6em;
-   font-size: 15px;
-   font-weight: bold;
+   margin: 0px;
+}
 
+#directions {
+   font-size: 17px;
+   line-height: 1.6em;
+   font-weight: bold;
+   color: #f4f4f4;
 }
 
 #deal-btn {
@@ -115,11 +121,6 @@ button:hover {
    margin-left: 10px;
 }
 
-.player-case {
-   border-radius: 5px;
-   margin: auto;
-}
-
 table {
    table-layout: auto;
    width: 100%;
@@ -138,14 +139,8 @@ td {
 }
 
 .eliminated {
-   background-color: lightgrey;
    color: gray;
-   border-width: 1px;
-   /* text-decoration: line-through; */
-   border-left: 3px solid gray;
-   border-top: 3px solid gray;
-   border-right: 3px solid gainsboro;
-   border-bottom: 3px solid gainsboro;
+   text-decoration: line-through;
 }
 
 .case-won {
@@ -158,12 +153,19 @@ td {
    font-weight: bold;
 }
 
+.player-case {
+   margin: auto;
+   margin-top: 8px;
+   border-radius: 5px;
+   background-color: black;
+}
+
 #player-case-display {
    height: 130px;
    padding: 5px;
    border: 3px solid #000;
    border-radius: 5px;
-   background: papayawhip;
+   background: rgba(255, 239, 213, 0.5);
 }
 
 #player-case-display h3 {
@@ -181,7 +183,8 @@ td {
    padding: 5px;
    border: 3px solid #000;
    border-radius: 5px;
-   background: papayawhip;
+   background: rgba(255, 239, 213, 0.5);
+   color: #f4f4f4;
 }
 
 #banker-offers h3 {
@@ -191,4 +194,17 @@ td {
    background: linear-gradient(gold, goldenrod);
    border-radius: 5px;
    color: #000;
+}
+
+/* media queries */
+@media(max-width: 768px) {
+
+   header,
+   #message-display,
+   #left-stage,
+   #right-stage {
+      width: 100%;
+   }
+
+
 }

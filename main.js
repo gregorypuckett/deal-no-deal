@@ -129,6 +129,9 @@ function pickFirstCase() {
 }
 
 function selectCases() {
+
+   directionsElmt.style.fontSize = "17px"
+
    const caseUnopened = document.querySelectorAll(".unopened")
    caseUnopened.forEach(function(_case) {       
          _case.addEventListener("click", openCase)  
@@ -159,15 +162,11 @@ function openCase() {
          }
       }
       
-
- 
       if (chosenCases.length === 6) {
          makeOffer()         
          noDealBtn.onclick = function() {
             directionsElmt.textContent = `Open five cases.`
             offerBtn.style.display = "none"
-            offerElmt.textContent = ""
-            directionsElmt.style.fontSize = "initial"
          selectCases()
          }          
       }
@@ -176,8 +175,6 @@ function openCase() {
          noDealBtn.onclick = function() {
             directionsElmt.textContent = `Open four cases.`
             offerBtn.style.display = "none"
-            offerElmt.textContent = ""
-            directionsElmt.style.fontSize = "initial"
          selectCases()
          }      
       }
@@ -186,8 +183,6 @@ function openCase() {
          noDealBtn.onclick = function() {
             directionsElmt.textContent = `Open three cases.`
             offerBtn.style.display = "none"
-            offerElmt.textContent = ""
-            directionsElmt.style.fontSize = "initial"
          selectCases()
          }       
       }
@@ -196,8 +191,6 @@ function openCase() {
          noDealBtn.onclick = function() {
             directionsElmt.textContent = `Open two cases.`
             offerBtn.style.display = "none"
-            offerElmt.textContent = ""
-            directionsElmt.style.fontSize = "initial"
          selectCases()
          }      
       }
@@ -206,8 +199,6 @@ function openCase() {
          noDealBtn.onclick = function() {
             directionsElmt.textContent = `Open one case.`
             offerBtn.style.display = "none"
-            offerElmt.textContent = ""
-            directionsElmt.style.fontSize = "initial"
          selectCases()
          }      
       }
@@ -216,8 +207,6 @@ function openCase() {
          noDealBtn.onclick = function() {
             directionsElmt.textContent = `Open one case.`
             offerBtn.style.display = "none"
-            offerElmt.textContent = ""
-            directionsElmt.style.fontSize = "initial"
          selectCases()
          }
       }
@@ -226,8 +215,6 @@ function openCase() {
          noDealBtn.onclick = function() {
             directionsElmt.textContent = `Open one case.`
             offerBtn.style.display = "none"
-            offerElmt.textContent = ""
-            directionsElmt.style.fontSize = "initial"
          selectCases() 
          }
       }
@@ -235,9 +222,7 @@ function openCase() {
          makeOffer()
          noDealBtn.onclick = function() {
             directionsElmt.textContent = `Open one more case.`
-            offerBtn.style.display = "none"
-            offerElmt.textContent = ""
-            directionsElmt.style.fontSize = "initial"
+            offerBtn.style.display = "none"     
          selectCases() 
          }  
       }
@@ -246,8 +231,6 @@ function openCase() {
          noDealBtn.onclick = function() {
             directionsElmt.textContent = `Two cases remain! You have two options 1. Open your case from the right or 2. Open the last case on the stage. Good luck!`
             offerBtn.style.display = "none"
-            offerElmt.textContent = ""
-            directionsElmt.style.fontSize = "initial"
          }
          selectLastCase()
          
@@ -327,6 +310,7 @@ function deal() {
    gameOver()
 }
 
+
 function formatCash(cash) {
    const dollarUS = Intl.NumberFormat("en-US", {
       style: "currency",
@@ -337,6 +321,8 @@ function formatCash(cash) {
 }
 
 function selectLastCase() {
+   directionsElmt.style.fontSize = "17px"
+
    const unopenedCaseElmt = document.querySelectorAll(".unopened")
    unopenedCaseElmt.forEach(function(_case) {
       _case.addEventListener("click", openLastCase) 
