@@ -167,6 +167,7 @@ function openCase() {
             directionsElmt.textContent = `Open five cases.`
             offerBtn.style.display = "none"
             offerElmt.textContent = ""
+            directionsElmt.style.fontSize = "initial"
          selectCases()
          }          
       }
@@ -176,6 +177,7 @@ function openCase() {
             directionsElmt.textContent = `Open four cases.`
             offerBtn.style.display = "none"
             offerElmt.textContent = ""
+            directionsElmt.style.fontSize = "initial"
          selectCases()
          }      
       }
@@ -185,6 +187,7 @@ function openCase() {
             directionsElmt.textContent = `Open three cases.`
             offerBtn.style.display = "none"
             offerElmt.textContent = ""
+            directionsElmt.style.fontSize = "initial"
          selectCases()
          }       
       }
@@ -194,6 +197,7 @@ function openCase() {
             directionsElmt.textContent = `Open two cases.`
             offerBtn.style.display = "none"
             offerElmt.textContent = ""
+            directionsElmt.style.fontSize = "initial"
          selectCases()
          }      
       }
@@ -203,6 +207,7 @@ function openCase() {
             directionsElmt.textContent = `Open one case.`
             offerBtn.style.display = "none"
             offerElmt.textContent = ""
+            directionsElmt.style.fontSize = "initial"
          selectCases()
          }      
       }
@@ -212,6 +217,7 @@ function openCase() {
             directionsElmt.textContent = `Open one case.`
             offerBtn.style.display = "none"
             offerElmt.textContent = ""
+            directionsElmt.style.fontSize = "initial"
          selectCases()
          }
       }
@@ -221,6 +227,7 @@ function openCase() {
             directionsElmt.textContent = `Open one case.`
             offerBtn.style.display = "none"
             offerElmt.textContent = ""
+            directionsElmt.style.fontSize = "initial"
          selectCases() 
          }
       }
@@ -230,6 +237,7 @@ function openCase() {
             directionsElmt.textContent = `Open one more case.`
             offerBtn.style.display = "none"
             offerElmt.textContent = ""
+            directionsElmt.style.fontSize = "initial"
          selectCases() 
          }  
       }
@@ -239,6 +247,7 @@ function openCase() {
             directionsElmt.textContent = `Two cases remain! You have two options 1. Open your case from the right or 2. Open the last case on the stage. Good luck!`
             offerBtn.style.display = "none"
             offerElmt.textContent = ""
+            directionsElmt.style.fontSize = "initial"
          }
          selectLastCase()
          
@@ -274,10 +283,10 @@ function makeOffer() {
    let bankOffer = Math.round(calcOffer(prizes, prizes.length))
    bankerOffers.push(bankOffer)
 
-   offerElmt.style.display = "inline"
-   offerElmt.textContent = `${formatCash(bankOffer)}`
    offerBtn.style.display = "inline"
-   directionsElmt.textContent = "Deal or no deal?"
+   directionsElmt.style.fontSize = "25px"
+   directionsElmt.style.margin ="2px"
+   directionsElmt.textContent = `${formatCash(bankOffer)}`
 
    const bankOffersElmt = document.querySelector("#banker-offers")
    offerDisplay = document.createElement("p")
