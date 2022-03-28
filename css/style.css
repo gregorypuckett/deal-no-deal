@@ -50,6 +50,7 @@ button:hover {
    height: 100%;
    display: flex;
    flex-wrap: wrap;
+
 }
 
 #stage {
@@ -58,6 +59,9 @@ button:hover {
    display: flex;
    flex-wrap: wrap;
    margin: auto;
+
+   align-items: center;
+   justify-content: center;
 }
 
 #left-stage {
@@ -72,8 +76,8 @@ button:hover {
 
 .briefcase {
    width: 100px;
-   height: 100px;
-   margin: 5px;
+   height: 80px;
+   margin: 2px;
    display: flex;
    align-items: center;
    justify-content: center;
@@ -100,13 +104,13 @@ button:hover {
    font-weight: bold;
    color: #f4f4f4;
    text-decoration: underline;
-   height: 100px;
-   background-position: 0px -100px;
+   /* height: 80px; */
+   background-position: 0px -110px;
 }
 
 .unopened {
-   height: 100px;
-   background-position: 0px 0px;
+   /* height: 80px; */
+   background-position: 0px -10px;
 }
 
 #offer-buttons button {
