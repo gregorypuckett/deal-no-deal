@@ -30,12 +30,19 @@ body {
 
 /*  set deal no deal buttons display */
 #message-display p {
-   margin: 0px;
+   margin: 5px;
 }
 
 #directions {
    font-size: 17px;
    line-height: 1.6em;
+   font-weight: bold;
+   color: #f4f4f4;
+}
+
+#offer-amt {
+
+   font-size: 25px;
    font-weight: bold;
    color: #f4f4f4;
 }

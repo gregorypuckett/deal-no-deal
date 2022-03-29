@@ -13,15 +13,13 @@ const cashAmounts = [0.01,1,5,10,25,50,
 const mainStageElmt = document.querySelector("#main-stage")
 const stageElmt = document.querySelector("#stage")
 const displayCaseElmt = document.querySelector("#display-case")
-const offerElmt = document.querySelector("#offer")
+const offerAmt = document.querySelector("#offer-amt")
 const offerBtn = document.querySelector("#offer-buttons")
 const directionsElmt = document.querySelector("#directions")
-
 
 generateCases()
 createStage()
 selectCases()
-
 
 // fisher-yates shuffle
 function shuffleCash(cashAmounts) {
@@ -38,17 +36,14 @@ function shuffleCash(cashAmounts) {
 }
 
 function generateCases() {
-
    const shuffledCash = shuffleCash(cashAmounts)
 
    for (let i = 0; i < 26; i++) {      
       briefcases.push({id: i+1, cashAmount: shuffledCash[i]})  
    }
-
 }
 
 function createStage() {
-
    const prizeTable = document.querySelector("#prize-table") 
    let row = 0
 
@@ -64,16 +59,11 @@ function createStage() {
 
       // create prize table
       if (i < 13) {
-
          const tr = document.createElement("tr")
          const col1 = document.createElement("td")
          const col2 = document.createElement("td")
-      
-
          prizeTable.appendChild(tr)
 
-         // let txt = document.createTextNode(cashAmounts[i])
-         // td.appendChild(txt)
          col1.setAttribute("class", "col-1")
          col2.setAttribute("class", "col-2")
          const rows = prizeTable.querySelectorAll("tr")
@@ -107,7 +97,7 @@ function createStage() {
    noDealBtn.setAttribute("id", "no-deal-btn")
 
    offerBtn.style.display = "none"
-   directionsElmt.textContent = "Select a case to hold and open six cases."   
+   directionsElmt.textContent = "Welcome! Select a case to hold and open six cases."   
 }
 
 function pickFirstCase() {   
@@ -128,10 +118,7 @@ function pickFirstCase() {
    })
 }
 
-function selectCases() {
-
-   directionsElmt.style.fontSize = "17px"
-
+function selectCases() {  
    const caseUnopened = document.querySelectorAll(".unopened")
    caseUnopened.forEach(function(_case) {       
          _case.addEventListener("click", openCase)  
@@ -167,6 +154,8 @@ function openCase() {
          noDealBtn.onclick = function() {
             directionsElmt.textContent = `Open five cases.`
             offerBtn.style.display = "none"
+            offerAmt.style.display = "none"
+            
          selectCases()
          }          
       }
@@ -175,6 +164,8 @@ function openCase() {
          noDealBtn.onclick = function() {
             directionsElmt.textContent = `Open four cases.`
             offerBtn.style.display = "none"
+            offerAmt.style.display = "none"
+            
          selectCases()
          }      
       }
@@ -183,6 +174,8 @@ function openCase() {
          noDealBtn.onclick = function() {
             directionsElmt.textContent = `Open three cases.`
             offerBtn.style.display = "none"
+            offerAmt.style.display = "none"
+            
          selectCases()
          }       
       }
@@ -191,6 +184,8 @@ function openCase() {
          noDealBtn.onclick = function() {
             directionsElmt.textContent = `Open two cases.`
             offerBtn.style.display = "none"
+            offerAmt.style.display = "none"
+            
          selectCases()
          }      
       }
@@ -199,6 +194,7 @@ function openCase() {
          noDealBtn.onclick = function() {
             directionsElmt.textContent = `Open one case.`
             offerBtn.style.display = "none"
+            offerAmt.style.display = "none"
          selectCases()
          }      
       }
@@ -207,6 +203,7 @@ function openCase() {
          noDealBtn.onclick = function() {
             directionsElmt.textContent = `Open one case.`
             offerBtn.style.display = "none"
+            offerAmt.style.display = "none"
          selectCases()
          }
       }
@@ -215,6 +212,7 @@ function openCase() {
          noDealBtn.onclick = function() {
             directionsElmt.textContent = `Open one case.`
             offerBtn.style.display = "none"
+            offerAmt.style.display = "none"
          selectCases() 
          }
       }
@@ -222,7 +220,8 @@ function openCase() {
          makeOffer()
          noDealBtn.onclick = function() {
             directionsElmt.textContent = `Open one more case.`
-            offerBtn.style.display = "none"     
+            offerBtn.style.display = "none"
+            offerAmt.style.display = "none"
          selectCases() 
          }  
       }
@@ -231,16 +230,15 @@ function openCase() {
          noDealBtn.onclick = function() {
             directionsElmt.textContent = `Two cases remain! You have two options 1. Open your case from the right or 2. Open the last case on the stage. Good luck!`
             offerBtn.style.display = "none"
-         }
-         selectLastCase()
-         
+            offerAmt.style.display = "none"
+         }         
+         selectLastCase()         
       }
-
    }
-
 }
 
 function makeOffer() {
+   directionsElmt.textContent = ""   
 
    const briefcase = document.querySelectorAll(".briefcase")
  
@@ -266,10 +264,10 @@ function makeOffer() {
    let bankOffer = Math.round(calcOffer(prizes, prizes.length))
    bankerOffers.push(bankOffer)
 
+   offerAmt.style.display = "inline"
    offerBtn.style.display = "inline"
-   directionsElmt.style.fontSize = "25px"
-   directionsElmt.style.margin ="2px"
-   directionsElmt.textContent = `${formatCash(bankOffer)}`
+   offerAmt.textContent = `${formatCash(bankOffer)}`
+   console.log(offerAmt.textContent)
 
    const bankOffersElmt = document.querySelector("#banker-offers")
    offerDisplay = document.createElement("p")
@@ -321,8 +319,7 @@ function formatCash(cash) {
 }
 
 function selectLastCase() {
-   directionsElmt.style.fontSize = "17px"
-
+   
    const unopenedCaseElmt = document.querySelectorAll(".unopened")
    unopenedCaseElmt.forEach(function(_case) {
       _case.addEventListener("click", openLastCase) 
