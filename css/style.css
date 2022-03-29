@@ -73,12 +73,13 @@ button:hover {
 
 #stage {
    width: 550px;
-   height: 600px;
+   min-height: 600px;
    display: flex;
    flex-wrap: wrap;
    margin: auto;
    align-items: center;
    justify-content: center;
+
 }
 
 #left-stage {
@@ -87,6 +88,7 @@ button:hover {
 }
 
 #right-stage {
+
    width: 25%;
    margin: 0 auto;
 }
@@ -208,6 +210,7 @@ td {
 
    header,
    #message-display,
+   #main-stage,
    #left-stage,
    #right-stage {
       width: 100%;
