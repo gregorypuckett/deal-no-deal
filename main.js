@@ -154,8 +154,7 @@ function openCase() {
          noDealBtn.onclick = function() {
             directionsElmt.textContent = `Open five cases.`
             offerBtn.style.display = "none"
-            offerAmt.style.display = "none"
-            
+            offerAmt.style.display = "none"            
          selectCases()
          }          
       }
@@ -164,8 +163,7 @@ function openCase() {
          noDealBtn.onclick = function() {
             directionsElmt.textContent = `Open four cases.`
             offerBtn.style.display = "none"
-            offerAmt.style.display = "none"
-            
+            offerAmt.style.display = "none"            
          selectCases()
          }      
       }
@@ -174,8 +172,7 @@ function openCase() {
          noDealBtn.onclick = function() {
             directionsElmt.textContent = `Open three cases.`
             offerBtn.style.display = "none"
-            offerAmt.style.display = "none"
-            
+            offerAmt.style.display = "none"            
          selectCases()
          }       
       }
@@ -184,8 +181,7 @@ function openCase() {
          noDealBtn.onclick = function() {
             directionsElmt.textContent = `Open two cases.`
             offerBtn.style.display = "none"
-            offerAmt.style.display = "none"
-            
+            offerAmt.style.display = "none"            
          selectCases()
          }      
       }
@@ -238,8 +234,7 @@ function openCase() {
 }
 
 function makeOffer() {
-   directionsElmt.textContent = ""   
-
+   directionsElmt.textContent = ""
    const briefcase = document.querySelectorAll(".briefcase")
  
    briefcase.forEach(function(_case) {       
@@ -267,14 +262,11 @@ function makeOffer() {
    offerAmt.style.display = "inline"
    offerBtn.style.display = "inline"
    offerAmt.textContent = `${formatCash(bankOffer)}`
-   console.log(offerAmt.textContent)
 
    const bankOffersElmt = document.querySelector("#banker-offers")
    offerDisplay = document.createElement("p")
    offerDisplay.textContent = `Round ${bankerOffers.length}: ${formatCash(bankerOffers[bankerOffers.length-1])}`
-   bankOffersElmt.append(offerDisplay)
-
-      
+   bankOffersElmt.append(offerDisplay)      
 }
 
 // expected value algorithm
@@ -307,7 +299,6 @@ function deal() {
    selectedCase.classList.remove("unopened")
    gameOver()
 }
-
 
 function formatCash(cash) {
    const dollarUS = Intl.NumberFormat("en-US", {
@@ -362,8 +353,7 @@ function openLastCase() {
       if (prize === formatCash(casePrize)) {
          prizeTableNodes[i].classList.add("case-won")
       } 
-   }
-   
+   }   
 }
 
 function gameOver() {
