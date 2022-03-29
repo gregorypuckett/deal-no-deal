@@ -298,7 +298,7 @@ function deal() {
    }
    let message = `${congrats}, you won ${formatCash(winnings)}! Your case had ${formatCash(playerCase.cashAmount)}!`
    offerBtn.style.display = "none"
-   offerElmt.textContent = message
+   directionsElmt.textContent = message
 
    // open players case
    const selectedCase = document.getElementById(playerCase.id)      
